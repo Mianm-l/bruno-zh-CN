@@ -1,0 +1,21 @@
+{
+  "name": "bruno-zh-cn",
+  "version": "4.3.0",
+  "description": "Bruno API 客户端全能纯中文汉化补丁与自动化打包注入工具",
+  "main": "patch.py",
+  "scripts": {
+    "install-patch": "python patch.py",
+    "restore": "python restore.py",
+    "extract": "python tools/extract_ui_strings.py"
+  },
+  "keywords": [
+    "bruno",
+    "postman",
+    "i18n",
+    "chinese",
+    "localization",
+    "api-client"
+  ],
+  "author": "chenjl",
+  "license": "MIT"
+}

@@ -1,0 +1,631 @@
+/**
+ * Bruno Comprehensive Chinese Language Localization Patch (全能中文汉化引擎)
+ */
+(function () {
+  'use strict';
+
+  const dict = {
+  "File": "文件",
+  "Edit": "编辑",
+  "View": "视图",
+  "Help": "帮助",
+  "Window": "窗口",
+  "Quit": "退出",
+  "Undo": "撤销",
+  "Redo": "重做",
+  "Cut": "剪切",
+  "Copy": "复制",
+  "Paste": "粘贴",
+  "Select All": "全选",
+  "Developer Tools": "开发者工具",
+  "Toggle Developer Tools": "切换开发者工具",
+  "Reset Zoom": "重置缩放",
+  "Actual Size": "实际大小",
+  "Zoom In": "放大",
+  "Zoom Out": "缩小",
+  "Full Screen": "全屏",
+  "Toggle Full Screen": "切换全屏",
+  "About Bruno": "关于 Bruno",
+  "About": "关于",
+  "Documentation": "说明文档",
+  "Preferences": "首选项",
+  "Settings": "系统设置",
+  "Menu": "菜单",
+  "Close Tab": "关闭标签页",
+  "Close All": "全部关闭",
+  "Close Others": "关闭其他标签页",
+  "Close Saved": "关闭已保存标签页",
+  "Close to the Right": "关闭右侧标签页",
+  "Close to the Left": "关闭左侧标签页",
+  "Minimize": "最小化",
+  "Hide": "隐藏",
+  "Hide Others": "隐藏其他",
+  "Clear Recent": "清除最近记录",
+  "Open Recent": "最近打开",
+  "Force Quit": "强制退出",
+  "Overview": "概览",
+  "Quick Actions": "快捷操作",
+  "My Workspace": "我的工作区",
+  "Workspaces": "工作区",
+  "Workspace": "工作区",
+  "Switch Workspace": "切换工作区",
+  "Create Workspace": "新建工作区",
+  "Open Workspace": "打开工作区",
+  "Close Workspace": "关闭工作区",
+  "Delete Workspace": "删除工作区",
+  "Rename Workspace": "重命名工作区",
+  "Workspace Settings": "工作区设置",
+  "Workspace Environments": "工作区环境变量",
+  "Back to Overview": "返回概览",
+  "Collections": "集合列表",
+  "Collection": "集合",
+  "Environments": "环境变量",
+  "Environment": "环境",
+  "Global Environments": "全局环境变量",
+  "Active Environment": "当前活动环境",
+  "No Environment": "无环境",
+  "Configure": "配置环境",
+  "Create Collection": "新建集合",
+  "Open Collection": "打开集合",
+  "Import Collection": "导入集合",
+  "Export Collection": "导出集合",
+  "Clone Collection": "克隆集合",
+  "Delete Collection": "删除集合",
+  "Close Collection": "关闭集合",
+  "Rename Collection": "重命名集合",
+  "Initialize Git": "初始化 Git",
+  "Edit Environments": "编辑环境变量",
+  "New Workspace": "新建工作区",
+  "Workspace Name": "工作区名称",
+  "Workspace Location": "工作区存放路径",
+  "Choose Folder": "选择目录",
+  "Select Folder": "选择文件夹",
+  "Recent Collections": "最近打开的集合",
+  "No collections found": "未找到集合",
+  "You have not opened any collections yet": "您尚未打开任何集合",
+  "Open an existing collection or create a new one to get started.": "打开已有集合或新建集合以开始使用。",
+  "API Specs": "API 规范",
+  "API Spec": "API 规范",
+  "No API Specs found.": "未找到 API 规范。",
+  "Open API Spec.": "打开 API 规范文件。",
+  "Open API Spec": "打开 API 规范",
+  "Add new API Spec": "添加新 API 规范",
+  "Blank Spec": "空白规范",
+  "Mock Servers": "Mock 虚拟服务",
+  "Mock Server": "Mock 虚拟服务",
+  "No mock servers yet.": "暂无 Mock 虚拟服务。",
+  "Use the + button to create one.": "点击上方 + 按钮以新建一个 Mock 服务。",
+  "Create Mock Server": "新建 Mock 服务",
+  "Clone Mock Server": "克隆 Mock 服务",
+  "Try Bruno Ultimate": "升级 Bruno 专业版",
+  "Try Bruno Ultimate for 14 days": "免费试用 Bruno 专业版 14 天",
+  "Dev Tools": "开发者工具",
+  "Open Dev Tools": "打开开发者工具",
+  "Cookies": "Cookie 管理",
+  "Search": "搜索",
+  "Filter": "筛选",
+  "Filter requests": "筛选请求",
+  "Filter by name": "按名称筛选",
+  "Actions": "操作",
+  "Status": "状态码",
+  "History": "请求历史",
+  "Notifications": "通知",
+  "No notifications": "暂无通知",
+  "Clear all": "全部清空",
+  "Clear history": "清空历史",
+  "No history yet": "暂无请求历史",
+  "Add documentation to help your team work smoothly.": "添加说明文档，帮助团队成员更顺畅地协作。",
+  "You can include:": "您可以包含以下内容：",
+  "Project overview": "项目整体概览",
+  "Setup instructions": "安装与环境配置指南",
+  "Key workflows": "核心业务与调用工作流",
+  "Resources & FAQs": "相关资源与常见问题解答",
+  "Add Documentation": "添加文档",
+  "+ Add Documentation": "+ 添加文档",
+  "Edit Documentation": "编辑文档",
+  "Save Documentation": "保存文档",
+  "No documentation added yet": "暂未添加说明文档",
+  "Preview": "视图预览",
+  "Write": "编写文档",
+  "Send Request": "发送请求",
+  "Send": "发送请求",
+  "Sending": "发送中...",
+  "Sending...": "发送中...",
+  "Cancel Request": "取消请求",
+  "Params": "Query 参数",
+  "Headers": "请求头 (Headers)",
+  "Body": "请求体 (Body)",
+  "Auth": "认证鉴权 (Auth)",
+  "Vars": "变量 (Vars)",
+  "Script": "脚本 (Script)",
+  "Assert": "断言 (Assert)",
+  "Tests": "测试用例 (Tests)",
+  "Docs": "接口文档 (Docs)",
+  "Bulk Edit": "批量编辑",
+  "Key-Value Edit": "键值对编辑",
+  "Query": "查询参数 (Query)",
+  "Query Params": "Query 查询参数",
+  "Path": "路径参数 (Path)",
+  "Path Params": "Path 路径参数",
+  "Name": "名称",
+  "Value": "值",
+  "Description": "描述说明",
+  "Enabled": "启用",
+  "Disabled": "禁用",
+  "Save": "保存",
+  "Saved": "已保存",
+  "Saving...": "保存中...",
+  "Discard": "放弃修改",
+  "Discard Changes": "放弃修改",
+  "Save Changes": "保存修改",
+  "Close": "关闭",
+  "New Request": "新建请求",
+  "New Folder": "新建文件夹",
+  "Add Request": "新建请求",
+  "Add Folder": "新建文件夹",
+  "+ Add request": "+ 新建请求",
+  "+ Add folder": "+ 新建文件夹",
+  "Generate Code": "生成代码",
+  "Copy as cURL": "复制为 cURL",
+  "Runner": "批量运行器",
+  "Run": "运行",
+  "Run Collection": "批量运行集合",
+  "Run Folder": "批量运行文件夹",
+  "Cancel": "取消",
+  "Submit": "确定",
+  "Confirm": "确认",
+  "Done": "完成",
+  "Delete": "删除",
+  "Rename": "重命名",
+  "Clone": "克隆",
+  "Clear": "清空",
+  "Copied": "已复制",
+  "Copy to Clipboard": "复制到剪贴板",
+  "Move to Folder": "移动到文件夹",
+  "Move": "移动",
+  "Duplicate": "创建副本",
+  "Export": "导出",
+  "Import": "导入",
+  "No Body": "无请求体",
+  "Multipart Form": "表单数据 (Multipart)",
+  "Form URL Encoded": "URL 编码 (x-www-form-urlencoded)",
+  "JSON": "JSON",
+  "XML": "XML",
+  "Text": "纯文本",
+  "TEXT": "纯文本",
+  "Raw": "原始格式 (Raw)",
+  "GraphQL": "GraphQL",
+  "File / Binary": "文件 / 二进制",
+  "Prettify": "美化格式",
+  "Prettify JSON": "美化 JSON",
+  "Prettify XML": "美化 XML",
+  "Upload File": "上传文件",
+  "Select File": "选择文件",
+  "Choose File": "选择文件",
+  "Clear File": "清除文件",
+  "Form Data": "表单数据",
+  "Raw Body": "原始请求体",
+  "No Auth": "无认证",
+  "Basic Auth": "Basic 基础认证",
+  "Bearer Token": "Bearer 令牌认证",
+  "OAuth 2.0": "OAuth 2.0",
+  "API Key": "API Key",
+  "AWS Sig v4": "AWS 签名 v4",
+  "Digest Auth": "摘要认证",
+  "Inherit": "继承集合认证",
+  "Username": "用户名",
+  "Password": "密码",
+  "Token": "Token 令牌",
+  "Add to": "添加到",
+  "Key": "键名",
+  "Grant Type": "授权模式 (Grant Type)",
+  "Callback URL": "回调地址 (Callback URL)",
+  "Auth URL": "授权地址 (Auth URL)",
+  "Access Token URL": "访问令牌地址 (Access Token URL)",
+  "Client ID": "客户端标识 (Client ID)",
+  "Client Secret": "客户端密钥 (Client Secret)",
+  "Scope": "权限范围 (Scope)",
+  "State": "状态标识 (State)",
+  "Get Access Token": "获取访问令牌",
+  "Access Key ID": "Access Key ID",
+  "Secret Access Key": "Secret Access Key",
+  "AWS Region": "AWS 区域 (Region)",
+  "Service Name": "服务名称 (Service Name)",
+  "Session Token": "会话令牌 (Session Token)",
+  "Pre Request Vars": "请求前置变量",
+  "Post Response Vars": "响应后置变量",
+  "Pre Request": "前置脚本",
+  "Post Response": "后置脚本",
+  "Variables": "变量列表",
+  "Variable": "变量",
+  "Add Variable": "添加变量",
+  "Add Assertion": "添加断言",
+  "Operator": "操作符",
+  "Expression": "表达式",
+  "Equals": "等于 (equals)",
+  "Not Equals": "不等于 (not equals)",
+  "Contains": "包含 (contains)",
+  "Not Contains": "不包含 (not contains)",
+  "Greater Than": "大于 (greater than)",
+  "Less Than": "小于 (less than)",
+  "Is Empty": "为空 (is empty)",
+  "Is Not Empty": "不为空 (is not empty)",
+  "Is Null": "为 Null (is null)",
+  "Is Not Null": "不为 Null (is not null)",
+  "Is True": "为 True (is true)",
+  "Is False": "为 False (is false)",
+  "Matches": "正则匹配 (matches)",
+  "Does Not Match": "正则不匹配 (does not match)",
+  "Length Equals": "长度等于 (length equals)",
+  "Response": "响应结果",
+  "Response Body": "响应体",
+  "Response Headers": "响应头",
+  "Request Headers": "请求头",
+  "Time": "耗时",
+  "Size": "大小",
+  "Timeline": "时序分析",
+  "Raw Data": "原始数据",
+  "No Response": "暂无响应",
+  "Click send to get a response": "点击「发送请求」以发起请求并获取响应结果",
+  "Passed": "通过",
+  "Failed": "失败",
+  "Running": "运行中",
+  "Export Report": "导出测试报告",
+  "View Raw": "查看原始数据",
+  "View Formatted": "查看格式化数据",
+  "Wrap Lines": "自动换行",
+  "Copy Response": "复制响应内容",
+  "Save Response": "保存响应到文件",
+  "Clear Response": "清空响应",
+  "General Information": "常规信息",
+  "Request URL": "请求地址",
+  "Request Method": "请求方法",
+  "Status Code": "状态码",
+  "General": "常规设置",
+  "Theme": "主题外观",
+  "Font": "字体设置",
+  "Proxy": "网络代理",
+  "Keybindings": "快捷键",
+  "Support": "技术支持",
+  "Dark": "暗黑深色",
+  "Light": "明亮浅色",
+  "System": "跟随系统",
+  "Font Size": "字体大小",
+  "Editor": "代码编辑器",
+  "Automatically check for updates": "自动检查版本更新",
+  "Telemetry": "遥测数据统计",
+  "SSL/TLS Certificate Verification": "SSL/TLS 证书校验",
+  "Request Timeout": "请求超时时间 (毫秒)",
+  "Follow Redirects": "跟随重定向",
+  "Max Redirects": "最大重定向次数",
+  "Auto Save": "自动保存",
+  "Auto Save Delay (ms)": "自动保存延迟 (毫秒)",
+  "Cert File": "证书文件",
+  "Cert file": "证书文件",
+  "Key File": "私钥文件",
+  "Key file": "私钥文件",
+  "Passphrase": "证书密码",
+  "Domain": "适用域名",
+  "Add Certificate": "添加证书",
+  "Add Client Certificate": "添加客户端证书",
+  "Custom CA Certificate": "自定义 CA 根证书",
+  "Client Certificates": "客户端证书",
+  "Proxy Settings": "代理服务器设置",
+  "Enable Proxy": "启用网络代理",
+  "Proxy Protocol": "代理协议",
+  "Proxy Host": "代理主机地址",
+  "Proxy Port": "代理端口",
+  "Bypass Proxy": "绕过代理地址列表",
+  "Proxy Auth": "代理身份验证",
+  "Proxy Username": "代理用户名",
+  "Proxy Password": "代理密码",
+  "Iterations": "运行轮数",
+  "Delay": "请求间隔 (毫秒)",
+  "Data File": "参数化数据文件",
+  "Select Data File": "选择数据文件 (CSV / JSON)",
+  "Run Summary": "运行概览",
+  "Total Requests": "请求总数",
+  "Passed Tests": "测试通过数",
+  "Failed Tests": "测试失败数",
+  "Total Time": "总耗时",
+  "View Results": "查看运行结果",
+  "Stop Run": "停止运行",
+  "Rerun": "重新运行",
+  "Manage Environments": "管理环境变量",
+  "Add Environment": "新建环境",
+  "Environment Name": "环境名称",
+  "Variables in": "环境中的变量",
+  "Secret": "加密保密",
+  "Import Environment": "导入环境",
+  "Export Environment": "导出环境",
+  "Delete Environment": "删除环境",
+  "Rename Environment": "重命名环境",
+  "No environments found": "未找到环境变量配置",
+  "Create an environment to store variables": "创建环境以集中存储与切换接口变量",
+  "Select Environment": "选择环境",
+  "Git": "Git 版本控制",
+  "Initialize Git repository for this collection": "为此集合初始化 Git 仓库",
+  "Commit": "提交 (Commit)",
+  "Commit Message": "提交说明",
+  "Push": "推送 (Push)",
+  "Pull": "拉取 (Pull)",
+  "Branch": "分支",
+  "Branches": "分支列表",
+  "Switch Branch": "切换分支",
+  "Create Branch": "新建分支",
+  "Stage Changes": "暂存修改",
+  "Unstage Changes": "取消暂存",
+  "Changes": "变更文件",
+  "Staged Changes": "已暂存变更",
+  "Unstaged Changes": "未暂存变更",
+  "No changes detected": "未检测到变更",
+  "Cookie Management": "Cookie 管理",
+  "Manage Cookies": "管理 Cookies",
+  "Add Cookie": "添加 Cookie",
+  "Delete Cookie": "删除 Cookie",
+  "No cookies found": "暂无 Cookie 记录",
+  "Cookie Name": "Cookie 名称",
+  "Cookie Value": "Cookie 值",
+  "Expires": "过期时间",
+  "HttpOnly": "HttpOnly",
+  "Secure": "Secure",
+  "Generate Code Snippet": "生成代码片段",
+  "Language": "编程语言",
+  "Library": "类库 / 框架",
+  "Are you sure?": "确认执行该操作吗？",
+  "Unsaved Changes": "存在未保存的修改",
+  "Do you want to save the changes you made?": "是否保存当前标签页中所做的修改？",
+  "Dont Save": "不保存",
+  "Don't Save": "不保存",
+  "Keep Changes": "保留修改",
+  "Location": "本地路径",
+  "Browse": "浏览",
+  "Method": "请求方法",
+  "URL": "接口地址",
+  "Enter URL": "输入请求 URL 地址",
+  "Enter request URL": "输入请求 URL 地址 (例如: https://api.example.com/users)",
+  "Request Name": "请求名称",
+  "Folder Name": "文件夹名称",
+  "Collection Name": "集合名称",
+  "Header": "请求头名称",
+  "Something went wrong": "发生了错误",
+  "This tab encountered an unexpected error.": "该标签页发生了意外错误。",
+  "Restart Bruno to recover.": "重启 Bruno 以恢复。",
+  "Error": "错误",
+  "Success": "成功",
+  "Warning": "警告",
+  "Info": "提示",
+  "Loading...": "加载中...",
+  "Please wait...": "请稍候...",
+  "All Collections": "全部集合",
+  "Open in Explorer": "在资源管理器中打开",
+  "Reveal in File Explorer": "在文件夹中显示",
+  "Copy Path": "复制文件路径",
+  "Copy Relative Path": "复制相对路径",
+  "Send Request Ctrl + Enter": "发送请求 Ctrl + Enter",
+  "New Request Ctrl + N": "新建请求 Ctrl + N",
+  "Edit Environments Ctrl + E": "编辑环境变量 Ctrl + E",
+  "Required": "必填",
+  "Type": "类型",
+  "Default": "默认值",
+  "Format": "格式",
+  "Add": "添加",
+  "Create": "新建",
+  "Update": "更新",
+  "Reset": "重置",
+  "Apply": "应用",
+  "Refresh": "刷新",
+  "Retry": "重试",
+  "Upload": "上传",
+  "Download": "下载",
+  "This action cannot be undone.": "此操作无法撤销。",
+  "Enter collection name": "输入集合名称",
+  "Enter folder name": "输入文件夹名称",
+  "Enter request name": "输入请求名称",
+  "Enter environment name": "输入环境名称",
+  "Discard All Changes": "放弃全部修改",
+  "Activate License": "激活 授权",
+  "Add Parameter": "添加 参数",
+  "Add Remote": "添加 远程仓库",
+  "Branch Name": "分支 名称",
+  "Clear History": "清空 历史",
+  "Clear Timeline": "清空 时序",
+  "Clone Request": "克隆 请求",
+  "Code Editor": "代码 编辑器",
+  "Collection Settings": "集合 设置",
+  "Collection Variable": "集合 变量",
+  "Copy Environment": "复制 环境",
+  "Create Environment": "新建 环境",
+  "Create Global Environment": "新建 Global 环境",
+  "Create Mock Response": "新建 Mock 响应",
+  "Create Pull Request": "新建 Pull 请求",
+  "Delete Mock Response": "删除 Mock 响应",
+  "Delete Remote": "删除 远程仓库",
+  "Environment Variables": "环境 变量",
+  "Export Environments": "导出 环境变量",
+  "Export Format": "导出 格式",
+  "Export Workspace": "导出 工作区",
+  "General Settings": "常规 设置",
+  "Generate Documentation": "生成 文档",
+  "Header Name": "请求头 名称",
+  "Header Value": "请求头 值",
+  "Import Workspace": "导入 工作区",
+  "License Key": "授权 键名",
+  "Manage Workspace": "管理 工作区",
+  "New Environment Name": "New Environment 名称",
+  "New Mock Response": "New Mock 响应",
+  "New Transient Request": "New Transient 请求",
+  "Open Cookies": "打开 Cookies",
+  "Open Preferences": "打开 首选项",
+  "Remote Name": "远程仓库 名称",
+  "Remote URL": "远程仓库 URL 地址",
+  "Remove Workspace": "移除 工作区",
+  "Request Variable": "请求 变量",
+  "View Run": "查看 运行",
+  "API Spec.": "API 规范。"
+};
+
+  const placeholderMap = {
+    'Search': '搜索...',
+    'Filter': '筛选...',
+    'Filter requests': '筛选请求...',
+    'Filter by name': '按名称筛选...',
+    'Enter request URL': '输入请求 URL 地址 (例如: https://api.example.com/users)',
+    'Name': '名称',
+    'Header': '请求头名称',
+    'Value': '值',
+    'Description': '描述说明',
+    'Key': '键名',
+    'Request Name': '请求名称',
+    'Folder Name': '文件夹名称',
+    'Enter collection name': '输入集合名称',
+    'Enter folder name': '输入文件夹名称',
+    'Enter request name': '输入请求名称',
+    'Enter environment name': '输入环境名称',
+    'Environment name...': '输入环境名称...',
+    'A brief description of this collection': '简要描述当前集合的功能与用途'
+  };
+
+  const regexRules = [
+    [/^(\d+)\s+collections?$/i, '$1 个集合'],
+    [/^(\d+)\s+environments?$/i, '$1 个环境'],
+    [/^(\d+)\s+requests?$/i, '$1 个请求'],
+    [/^(\d+)\s+folders?$/i, '$1 个文件夹'],
+    [/^(\d+)\s+workspaces?$/i, '$1 个工作区'],
+    [/^(\d+)\s+tests?$/i, '$1 个测试用例'],
+    [/^(\d+)\s+passed$/i, '$1 个通过'],
+    [/^(\d+)\s+failed$/i, '$1 个失败'],
+    [/^(\d+)\s+selected$/i, '已选择 $1 项'],
+    [/^(\d+)\s+items?$/i, '$1 项']
+  ];
+
+  function translateText(str) {
+    if (!str) return str;
+    const trimmed = str.trim();
+    if (!trimmed) return str;
+
+    // 1. Direct dictionary match
+    if (dict[trimmed]) {
+      return str.replace(trimmed, dict[trimmed]);
+    }
+
+    // 2. Regex dynamic rule match
+    for (const [pattern, repl] of regexRules) {
+      if (pattern.test(trimmed)) {
+        return str.replace(trimmed, trimmed.replace(pattern, repl));
+      }
+    }
+
+    return str;
+  }
+
+  function translateNode(node) {
+    if (!node) return;
+
+    if (node.nodeType === 1) {
+      const el = node;
+      const tag = el.tagName.toLowerCase();
+
+      // Skip scripts, styles, raw code content (except CodeMirror placeholder)
+      if (tag === 'script' || tag === 'style' || tag === 'textarea' || tag === 'pre' || tag === 'code') {
+        return;
+      }
+
+      // CodeMirror editor: only allow translating .cm-placeholder
+      if (el.classList) {
+        if (el.classList.contains('cm-placeholder')) {
+          const val = el.textContent;
+          if (val && dict[val.trim()]) {
+            el.textContent = dict[val.trim()];
+          }
+          return;
+        }
+        if (el.classList.contains('cm-content') || 
+            el.classList.contains('cm-line') || 
+            el.classList.contains('monaco-editor')) {
+          return;
+        }
+      }
+
+      // Placeholders
+      if (el.placeholder) {
+        const p = el.placeholder.trim();
+        if (placeholderMap[p]) {
+          el.placeholder = placeholderMap[p];
+        } else if (dict[p]) {
+          el.placeholder = dict[p];
+        }
+      }
+
+      // Title & Aria Attributes
+      if (el.title) {
+        const t = el.title.trim();
+        if (dict[t]) el.title = dict[t];
+      }
+      const aria = el.getAttribute('aria-label');
+      if (aria) {
+        const a = aria.trim();
+        if (dict[a]) el.setAttribute('aria-label', dict[a]);
+      }
+      const tooltip = el.getAttribute('data-tooltip') || el.getAttribute('tooltip');
+      if (tooltip) {
+        const tt = tooltip.trim();
+        if (dict[tt]) {
+          if (el.hasAttribute('data-tooltip')) el.setAttribute('data-tooltip', dict[tt]);
+          if (el.hasAttribute('tooltip')) el.setAttribute('tooltip', dict[tt]);
+        }
+      }
+    }
+
+    // Text node
+    if (node.nodeType === 3) {
+      const val = node.nodeValue;
+      if (val && val.trim()) {
+        const translated = translateText(val);
+        if (translated !== val) {
+          node.nodeValue = translated;
+        }
+      }
+      return;
+    }
+
+    // Traverse children
+    let child = node.firstChild;
+    while (child) {
+      translateNode(child);
+      child = child.nextSibling;
+    }
+  }
+
+  let scheduled = false;
+  function scheduleTranslation() {
+    if (scheduled) return;
+    scheduled = true;
+    requestAnimationFrame(() => {
+      translateNode(document.body);
+      scheduled = false;
+    });
+  }
+
+  const observer = new MutationObserver((mutations) => {
+    scheduleTranslation();
+  });
+
+  function init() {
+    if (document.body) {
+      translateNode(document.body);
+      observer.observe(document.body, {
+        childList: true,
+        subtree: true,
+        characterData: true
+      });
+    } else {
+      window.addEventListener('DOMContentLoaded', init);
+    }
+  }
+
+  init();
+  setInterval(scheduleTranslation, 600);
+
+  console.log('[Bruno i18n] 全能中文汉化引擎已生效，装载词条：' + Object.keys(dict).length);
+})();
