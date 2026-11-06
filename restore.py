@@ -15,6 +15,9 @@ DEFAULT_PATHS = [
 ]
 
 def find_bruno_dir():
+    # 0. 优先检测当前脚本所在目录是否就是 Bruno 根目录
+    if os.path.exists(os.path.join(CURRENT_DIR, "resources", "app.asar")):
+        return CURRENT_DIR
     if len(sys.argv) > 1 and os.path.isdir(sys.argv[1]):
         return sys.argv[1]
     for p in DEFAULT_PATHS:
